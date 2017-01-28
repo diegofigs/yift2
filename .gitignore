@@ -1,0 +1,6 @@
+.yo-rc.json
+.tmp/
+.idea
+coverage/
+dist/
+node_modules/
