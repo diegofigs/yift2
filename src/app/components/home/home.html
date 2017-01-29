@@ -40,9 +40,9 @@
         </div>
 
         <div class="form-group"
-             ng-class="{ 'has-success': messageForm.name.$dirty && messageForm.name.$valid,
-           'has-error': messageForm.name.$dirty && messageForm.name.$invalid,
-           'has-feedback': messageForm.name.$dirty && (messageForm.name.$valid || messageForm.name.$invalid) }">
+             ng-class="{ 'has-success': messageForm.name.$touched && messageForm.name.$valid,
+           'has-error': messageForm.name.$touched && messageForm.name.$invalid,
+           'has-feedback': messageForm.name.$touched && (messageForm.name.$valid || messageForm.name.$invalid) }">
           <label>Name</label>
           <input name="name" id="nameField" type="text" class="form-control" placeholder="Recipient"
                  ng-model="$ctrl.name"
@@ -51,19 +51,19 @@
                  uib-typeahead="contact for contact in $ctrl.getContacts($viewValue, 'name')"
                  required>
           <span class="glyphicon glyphicon-ok form-control-feedback"
-          ng-if="messageForm.name.$dirty && messageForm.name.$valid"></span>
+          ng-if="messageForm.name.$touched && messageForm.name.$valid"></span>
           <span class="glyphicon glyphicon-remove form-control-feedback"
-          ng-if="messageForm.name.$dirty && messageForm.name.$invalid"></span>
-          <div class="help-block" ng-messages="messageForm.name.$error" ng-if="messageForm.name.$dirty && messageForm.name.$invalid">
+          ng-if="messageForm.name.$touched && messageForm.name.$invalid"></span>
+          <div class="help-block" ng-messages="messageForm.name.$error" ng-if="messageForm.name.$touched">
             <p ng-message="minlength">Name is too short.</p>
             <p ng-message="required">Your name is required.</p>
           </div>
         </div>
 
         <div class="form-group" ng-if="$ctrl.typeOfMessage == 1"
-             ng-class="{ 'has-success': messageForm.email.$dirty && messageForm.email.$valid,
-             'has-error': messageForm.email.$dirty && messageForm.email.$invalid,
-             'has-feedback': messageForm.email.$dirty && (messageForm.email.$valid || messageForm.email.$invalid) }">
+             ng-class="{ 'has-success': messageForm.email.$touched && messageForm.email.$valid,
+             'has-error': messageForm.email.$touched && messageForm.email.$invalid,
+             'has-feedback': messageForm.email.$touched && (messageForm.email.$valid || messageForm.email.$invalid) }">
           <div class="control-group">
             <label>Email</label>
             <input name="email" type="email" class="form-control" placeholder="hello@yiftee.com"
@@ -72,20 +72,20 @@
                    uib-typeahead="contact for contact in $ctrl.getContacts($viewValue, 'email')"
                    required>
             <span class="glyphicon glyphicon-ok form-control-feedback"
-            ng-if="messageForm.email.$dirty && messageForm.email.$valid"></span>
+            ng-if="messageForm.email.$touched && messageForm.email.$valid"></span>
             <span class="glyphicon glyphicon-remove form-control-feedback"
-            ng-if="messageForm.email.$dirty && messageForm.email.$invalid"></span>
+            ng-if="messageForm.email.$touched && messageForm.email.$invalid"></span>
           </div>
-          <div class="help-block" ng-messages="messageForm.email.$error" ng-if="messageForm.email.$dirty">
+          <div class="help-block" ng-messages="messageForm.email.$error" ng-if="messageForm.email.$touched">
             <p ng-message="email">This needs to be a valid email.</p>
             <p ng-message="required">Your email is required.</p>
           </div>
         </div>
 
         <div class="form-group" ng-if="$ctrl.typeOfMessage == 2"
-             ng-class="{ 'has-success': messageForm.sms.$dirty && messageForm.sms.$valid,
-             'has-error': messageForm.sms.$dirty && messageForm.sms.$invalid,
-             'has-feedback': messageForm.sms.$dirty && (messageForm.sms.$valid || messageForm.sms.$invalid) }">
+             ng-class="{ 'has-success': messageForm.sms.$touched && messageForm.sms.$valid,
+             'has-error': messageForm.sms.$touched && messageForm.sms.$invalid,
+             'has-feedback': messageForm.sms.$touched && (messageForm.sms.$valid || messageForm.sms.$invalid) }">
           <label>Phone</label>
           <input name="sms" type="number" class="form-control" placeholder="8003334444"
                  ng-model="$ctrl.sms"
@@ -95,10 +95,10 @@
                  uib-typeahead="contact for contact in $ctrl.getContacts($viewValue, 'sms')"
                  required>
           <span class="glyphicon glyphicon-ok form-control-feedback"
-          ng-if="messageForm.tel.$dirty && messageForm.tel.$valid"></span>
+          ng-if="messageForm.tel.$touched && messageForm.tel.$valid"></span>
           <span class="glyphicon glyphicon-remove form-control-feedback"
-          ng-if="messageForm.tel.$dirty && messageForm.tel.$invalid"></span>
-          <div class="help-block" ng-messages="messageForm.sms.$error" ng-if="messageForm.sms.$dirty">
+          ng-if="messageForm.tel.$touched && messageForm.tel.$invalid"></span>
+          <div class="help-block" ng-messages="messageForm.sms.$error" ng-if="messageForm.sms.$touched">
             <p ng-message="minlength">Phone number should be at least 10 digits.</p>
             <p ng-message="maxlength">Phone number should be at most 11 digits.</p>
             <p ng-message="required">Your phone is required.</p>
@@ -106,15 +106,15 @@
         </div>
 
         <div class="form-group"
-             ng-class="{ 'has-success': messageForm.message.$dirty && messageForm.message.$valid,
-             'has-error': messageForm.message.$dirty && messageForm.message.$invalid,
-             'has-feedback': messageForm.message.$dirty && (messageForm.message.$valid || messageForm.message.$invalid) }">
+             ng-class="{ 'has-success': messageForm.message.$touched && messageForm.message.$valid,
+             'has-error': messageForm.message.$touched && messageForm.message.$invalid,
+             'has-feedback': messageForm.message.$touched && (messageForm.message.$valid || messageForm.message.$invalid) }">
           <label>Message</label>
           <textarea name="message" class="form-control" cols="35" rows="4"
                     ng-model="$ctrl.message"
                     ng-maxlength="140"
                     required></textarea>
-          <div class="help-block" ng-messages="messageForm.message.$error" ng-if="messageForm.message.$dirty">
+          <div class="help-block" ng-messages="messageForm.message.$error" ng-if="messageForm.message.$touched">
             <p ng-message="maxlength">Message limit is 140 characters.</p>
             <p ng-message="required">Message is required.</p>
           </div>
