@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const conf = require('./gulp.conf');
 const path = require('path');
+const pkg = require('../package.json');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
@@ -65,10 +66,7 @@ module.exports = {
       template: conf.path.src('index.html')
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: function (module) {
-        return module.resource && module.resource.indexOf(path.resolve(__dirname, 'src')) === -1;
-      }
+      name: 'vendor'
     }),
     new webpack.LoaderOptionsPlugin({
       options: {
@@ -82,7 +80,8 @@ module.exports = {
     path: path.join(process.cwd(), conf.paths.tmp),
     filename: '[name].bundle.js'
   },
-  entry: [
-    `./${conf.path.src('index')}`
-  ]
+  entry: {
+    app: `./${conf.path.src('index')}`,
+    vendor: Object.keys(pkg.dependencies)
+  }
 };
