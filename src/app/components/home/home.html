@@ -105,14 +105,30 @@
           </div>
         </div>
 
+        <div class="form-group">
+          <div class="btn-group" uib-dropdown dropdown-append-to-body keyboard-nav>
+            <button id="btn-append-to-body" type="button" class="btn btn-primary" uib-dropdown-toggle>
+              Optional Templates! <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+              <li ng-repeat="template in $ctrl.messageTemplates">
+                <a ng-click="$ctrl.useTemplate(template.title)"><strong>{{ template.title }}</strong></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
         <div class="form-group"
              ng-class="{ 'has-success': messageForm.message.$touched && messageForm.message.$valid,
              'has-error': messageForm.message.$touched && messageForm.message.$invalid,
-             'has-feedback': messageForm.message.$touched && (messageForm.message.$valid || messageForm.message.$invalid) }">
+             'has-feedback': messageForm.message.$touched &&
+             (messageForm.message.$valid || messageForm.message.$invalid) }">
           <label>Message</label>
           <textarea name="message" class="form-control" cols="35" rows="4"
                     ng-model="$ctrl.message"
                     ng-maxlength="140"
+                    uib-typeahead="template for template in $ctrl.getTemplateTitles($viewValue)"
+                    typeahead-on-select="$ctrl.useTemplate($item)"
                     required></textarea>
           <div class="help-block" ng-messages="messageForm.message.$error" ng-if="messageForm.message.$touched">
             <p ng-message="maxlength">Message limit is 140 characters.</p>
@@ -121,7 +137,9 @@
         </div>
 
         <div class="form-group">
-          <button type="submit" class="btn btn-default btn-lg center-block" ng-disabled="messageForm.$invalid">Submit</button>
+          <button type="submit" class="btn btn-default btn-lg center-block" ng-disabled="messageForm.$invalid">
+            Submit
+          </button>
         </div>
       </form>
     </div>
