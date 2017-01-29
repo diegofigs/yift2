@@ -2,12 +2,12 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12 col-md-6 col-md-offset-3 text-center">
-        <h1>Yift The Messenger</h1>
+        <h1 class="appear-enter">Yift The Messenger</h1>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-12 col-md-6 col-md-offset-3 text-center">
-        <p class="lead">
+        <p class="slide-from-bottom">
           Delivering lightning fast messages to friends and family
         </p>
       </div>
@@ -40,7 +40,7 @@
           </div>
         </div>
 
-        <div class="form-group"
+        <div class="form-group slide-from-right"
              ng-class="{ 'has-success': messageForm.name.$dirty && messageForm.name.$valid,
            'has-error': messageForm.name.$dirty && messageForm.name.$invalid,
            'has-feedback': messageForm.name.$dirty && (messageForm.name.$valid || messageForm.name.$invalid) }">
@@ -61,7 +61,7 @@
           </div>
         </div>
 
-        <div class="form-group" ng-if="$ctrl.typeOfMessage == 1"
+        <div class="form-group slide-from-right" ng-if="$ctrl.typeOfMessage == 1"
              ng-class="{ 'has-success': messageForm.email.$dirty && messageForm.email.$valid,
              'has-error': messageForm.email.$dirty && messageForm.email.$invalid,
              'has-feedback': messageForm.email.$dirty && (messageForm.email.$valid || messageForm.email.$invalid) }">
@@ -83,7 +83,7 @@
           </div>
         </div>
 
-        <div class="form-group" ng-if="$ctrl.typeOfMessage == 2"
+        <div class="form-group slide-from-right" ng-if="$ctrl.typeOfMessage == 2"
              ng-class="{ 'has-success': messageForm.sms.$dirty && messageForm.sms.$valid,
              'has-error': messageForm.sms.$dirty && messageForm.sms.$invalid,
              'has-feedback': messageForm.sms.$dirty && (messageForm.sms.$valid || messageForm.sms.$invalid) }">
@@ -106,7 +106,7 @@
           </div>
         </div>
 
-        <div class="form-group"
+        <div class="form-group slide-from-right"
              ng-class="{ 'has-success': messageForm.message.$dirty && messageForm.message.$valid,
              'has-error': messageForm.message.$dirty && messageForm.message.$invalid,
              'has-feedback': messageForm.message.$dirty && (messageForm.message.$valid || messageForm.message.$invalid) }">
@@ -121,7 +121,7 @@
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group slide-from-right">
           <button type="submit" class="btn btn-default pull-right" ng-disabled="messageForm.$invalid">Submit</button>
         </div>
       </form>
