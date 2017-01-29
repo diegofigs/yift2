@@ -1,8 +1,30 @@
+$primary-color: #03A9F4;
+$dark-primary-color: #0288D1;
+$light-primary-color: #B3E5FC;
+$accent-color: #FF5722;
+$text-and-icons: #FFFFFF;
+
+$navbar-default-bg: $dark-primary-color;
+$navbar-default-brand-color: $text-and-icons;
+$navbar-border-radius: 0;
+
+$jumbotron-bg: $primary-color;
+$jumbotron-heading-color: $text-and-icons;
+
+$btn-default-bg: $primary-color;
+$btn-default-color: $text-and-icons;
+
+$brand-primary: $primary-color;
+
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 .navbar {
   margin-bottom: 0;
+}
+
+.lead {
+  color: $light-primary-color;
 }
 
 @keyframes appear {
