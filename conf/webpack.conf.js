@@ -45,12 +45,20 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpg|svg|woff|woff2)$/,
-        loader: 'url-loader?limit=1000'
+        test: /\.(png|jpg|gif|svg)$/,
+        loader: 'url-loader?limit=10000',
       },
       {
-        test: /\.(eot|ttf)$/,
-        loader: 'file-loader'
+        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "file-loader"
+      },
+      {
+        test: /\.(woff|woff2)$/,
+        loader: "url-loader?limit=5000"
+      },
+      {
+        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url-loader?limit=10000"
       }
     ]
   },
