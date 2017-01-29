@@ -10,10 +10,21 @@ export default class MessageService {
     this.$log = $log;
   }
 
+  /**
+   * Sends message to API, doesn't handle errors
+   * @param message new message
+   * @returns {JQueryXHR|*|IHttpPromise<T>}
+   */
   sendMessage(message) {
     return this.$http.post(`${this.baseDomain}/message`, message);
   }
 
+  /**
+   * Autocomplete API function, transforms response depending on desired value type
+   * @param q search value
+   * @param field type of value
+   * @returns {IPromise<TResult>|Promise.<T>} Response from API
+   */
   getContacts(q, field) {
     const config = {
       params: {
