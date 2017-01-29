@@ -3,8 +3,8 @@ import ngAnimate from 'angular-animate';
 import ngTouch from 'angular-touch';
 import ngMessages from 'angular-messages';
 import uiRouter from 'angular-ui-router';
-import 'bootstrap/dist/js/bootstrap';
 import uiBootstrap from 'angular-ui-bootstrap';
+import 'bootstrap';
 
 import AppComponent from './app/app.component';
 import Components from './app/components/components';
