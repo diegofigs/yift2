@@ -4,7 +4,7 @@ import ngTouch from 'angular-touch';
 import ngMessages from 'angular-messages';
 import uiRouter from 'angular-ui-router';
 import uiBootstrap from 'angular-ui-bootstrap';
-import 'bootstrap';
+import 'bootstrap-sass';
 
 import AppComponent from './app/app.component';
 import Components from './app/components/components';
