@@ -3,3 +3,42 @@
 .navbar {
   margin-bottom: 0;
 }
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bottom-to-center {
+  from {
+    transform: translateY(30px)
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes right-to-center {
+  from {
+    transform: translateX(30px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.appear-enter {
+  animation: 2s appear;
+}
+
+.slide-from-right {
+  animation: 2s right-to-center;
+}
+
+.slide-from-bottom {
+  animation: 2.5s bottom-to-center;
+}
